@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* Gold/Bronze accent: #B08A4A */
+    --gold: 0.65 0.095 74;
+    /* Light gold: #C9A86A */
+    --gold-light: 0.73 0.09 76;
+    /* Dark gold: #8A6A30 */
+    --gold-dark: 0.52 0.085 72;
+    /* Charcoal footer: #2B2B2B */
+    --charcoal: 0.22 0 0;
+
+    --background: 1 0 0;
+    --foreground: 0.13 0 0;
+    --card: 1 0 0;
+    --card-foreground: 0.13 0 0;
+    --popover: 1 0 0;
+    --popover-foreground: 0.13 0 0;
+
+    /* Primary = gold */
+    --primary: 0.65 0.095 74;
+    --primary-foreground: 1 0 0;
+
+    --secondary: 0.97 0 0;
+    --secondary-foreground: 0.22 0 0;
+
+    --muted: 0.97 0 0;
+    --muted-foreground: 0.45 0 0;
+
+    --accent: 0.97 0 0;
+    --accent-foreground: 0.13 0 0;
+
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    --border: 0.92 0 0;
+    --input: 0.92 0 0;
+    --ring: 0.65 0.095 74;
+
+    --chart-1: 0.646 0.222 41.116;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+
+    --sidebar: 0.985 0 0;
+    --sidebar-foreground: 0.145 0 0;
+    --sidebar-primary: 0.65 0.095 74;
+    --sidebar-primary-foreground: 1 0 0;
+    --sidebar-accent: 0.97 0 0;
+    --sidebar-accent-foreground: 0.205 0 0;
+    --sidebar-border: 0.922 0 0;
+    --sidebar-ring: 0.65 0.095 74;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-gold {
+    color: oklch(var(--gold));
+  }
+  .text-gold-light {
+    color: oklch(var(--gold-light));
+  }
+  .bg-gold {
+    background-color: oklch(var(--gold));
+  }
+  .bg-gold-light {
+    background-color: oklch(var(--gold-light));
+  }
+  .border-gold {
+    border-color: oklch(var(--gold));
+  }
+  .bg-charcoal {
+    background-color: oklch(var(--charcoal));
+  }
+  .btn-gold {
+    @apply bg-gold text-white font-semibold uppercase tracking-wider px-6 py-3 rounded-lg transition-all duration-200 hover:opacity-90 hover:shadow-gold active:scale-[0.98];
+  }
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold uppercase tracking-wider text-foreground;
+  }
+  .section-subtitle {
+    @apply text-muted-foreground text-base mt-2;
+  }
+}
