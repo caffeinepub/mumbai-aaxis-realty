@@ -53,15 +53,16 @@ const FALLBACK_PROPERTIES: (Property & { image: string })[] = [
       "/assets/uploads/sunteck_goregaon_west_luxury_project_2-019d391e-200e-746f-aa37-4304a49eeb02-1.mp4",
   },
   {
-    title: "Juhu Beach Villa",
-    location: "Juhu, Mumbai",
-    price: BigInt(120000000),
-    propertyType: "Villa",
-    bedrooms: BigInt(5),
-    bathrooms: BigInt(6),
-    area: BigInt(5400),
-    description: "Private beachfront villa with tropical gardens.",
-    image: "/assets/generated/property-juhu-villa.dim_600x400.jpg",
+    title: "PURVA ESTRELLA",
+    location: "Lokhandwala Andheri West",
+    price: BigInt(33800000),
+    propertyType: "Apartment",
+    bedrooms: BigInt(2),
+    bathrooms: BigInt(2),
+    area: BigInt(784),
+    description: "2, 3 & 4 BED Luxury Residences",
+    image:
+      "/assets/uploads/vid-20260329-wa0088-019d3967-c32c-7323-b278-2c0d3db8651d-1.mp4",
   },
   {
     title: "Colaba Heritage Apartment",
@@ -79,7 +80,7 @@ const FALLBACK_PROPERTIES: (Property & { image: string })[] = [
 const PROPERTY_IMAGES = [
   "/assets/uploads/aerial_cam_0301-019d38a7-bddc-779e-8570-cfa573bff726-1.jpg",
   "/assets/uploads/sunteck_goregaon_west_luxury_project_2-019d391e-200e-746f-aa37-4304a49eeb02-1.mp4",
-  "/assets/generated/property-juhu-villa.dim_600x400.jpg",
+  "/assets/uploads/vid-20260329-wa0088-019d3967-c32c-7323-b278-2c0d3db8651d-1.mp4",
   "/assets/generated/property-colaba-heritage.dim_600x400.jpg",
 ];
 
@@ -466,6 +467,15 @@ function FeaturedProperties() {
                       loop
                       playsInline
                     />
+                  ) : idx === 2 ? (
+                    <video
+                      src="/assets/uploads/vid-20260329-wa0088-019d3967-c32c-7323-b278-2c0d3db8651d-1.mp4"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                    />
                   ) : (
                     <img
                       src={(prop as any).image}
@@ -492,7 +502,9 @@ function FeaturedProperties() {
                       ? "₹1.17 Cr Onwards"
                       : idx === 1
                         ? "₹3.75 Cr Onwards"
-                        : formatPrice(prop.price)}
+                        : idx === 2
+                          ? "₹3.38 Cr Onwards"
+                          : formatPrice(prop.price)}
                   </div>
                   <div className="flex items-center gap-3 text-xs text-muted-foreground mb-4">
                     {idx === 0 ? (
@@ -501,10 +513,12 @@ function FeaturedProperties() {
                       <span>
                         3 &amp; 4 BHK with Private Lift, Deck &amp; Lobby
                       </span>
+                    ) : idx === 2 ? (
+                      <span>2, 3 &amp; 4 BED Luxury Residences</span>
                     ) : (
                       <span>{Number(prop.bedrooms)} BHK</span>
                     )}
-                    {idx !== 1 && (
+                    {idx !== 1 && idx !== 2 && (
                       <>
                         <span>·</span>
                         <span>{Number(prop.bathrooms)} Baths</span>
@@ -516,7 +530,9 @@ function FeaturedProperties() {
                         ? "645–1,031 sq.ft"
                         : idx === 1
                           ? "1,267–1,700 sq.ft"
-                          : `${Number(prop.area).toLocaleString()} sq.ft`}
+                          : idx === 2
+                            ? "784–1,600 sq.ft"
+                            : `${Number(prop.area).toLocaleString()} sq.ft`}
                     </span>
                   </div>
                   <button
