@@ -30,7 +30,7 @@ import { useGetAllProperties, useSubmitContactForm } from "./hooks/useQueries";
 const FALLBACK_PROPERTIES: (Property & { image: string })[] = [
   {
     title: "Codename CORAL by Mayfair Housing",
-    location: "Mira Road - East",
+    location: "Mira Road East",
     price: BigInt(11700000),
     propertyType: "Apartment",
     bedrooms: BigInt(2),
