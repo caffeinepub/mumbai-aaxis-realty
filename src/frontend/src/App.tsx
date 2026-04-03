@@ -30,7 +30,7 @@ import { useGetAllProperties, useSubmitContactForm } from "./hooks/useQueries";
 const FALLBACK_PROPERTIES: (Property & { image: string })[] = [
   {
     title: "Codename CORAL by Mayfair Housing",
-    location: "Mira Road East",
+    location: "Mira Road-East",
     price: BigInt(11700000),
     propertyType: "Apartment",
     bedrooms: BigInt(2),
@@ -82,6 +82,18 @@ const PROPERTY_IMAGES = [
   "/assets/uploads/sunteck_goregaon_west_luxury_project_2-019d391e-200e-746f-aa37-4304a49eeb02-1.mp4",
   "/assets/uploads/vid-20260329-wa0088-019d3967-c32c-7323-b278-2c0d3db8651d-1.mp4",
   "/assets/generated/property-colaba-heritage.dim_600x400.jpg",
+];
+
+const PROPERTY_TITLES = [
+  "Codename CORAL by Mayfair Housing",
+  "Altavia by Sunteck",
+  "PURVA ESTRELLA",
+];
+
+const PROPERTY_LOCATIONS = [
+  "Mira Road-East",
+  "ODC Goregaon West",
+  "Lokhandwala Andheri West",
 ];
 
 const LOCATIONS = [
@@ -491,11 +503,17 @@ function FeaturedProperties() {
                 </div>
                 <div className="p-4">
                   <h3 className="font-serif font-semibold text-base text-foreground mb-1 line-clamp-1">
-                    {prop.title}
+                    {idx < PROPERTY_TITLES.length
+                      ? PROPERTY_TITLES[idx]
+                      : prop.title}
                   </h3>
                   <div className="flex items-center gap-1 text-muted-foreground text-xs mb-1">
                     <MapPin size={12} />
-                    <span>{prop.location}</span>
+                    <span>
+                      {idx < PROPERTY_LOCATIONS.length
+                        ? PROPERTY_LOCATIONS[idx]
+                        : prop.location}
+                    </span>
                   </div>
                   <div className="text-gold font-bold text-lg mb-3">
                     {idx === 0
